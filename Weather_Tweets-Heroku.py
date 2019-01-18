@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 # coding: utf-8
 
 # ### Instructions
@@ -17,39 +17,39 @@
 # 
 #   * Set timer to run every 1 minute (for your Heroku app)
 
-# In[1]:
+# In[ ]:
 
 
 # Dependencies
+import os
 import tweepy
 import time
 import json
 import random
 import requests as req
 import datetime
-import os
 
 
-# In[2]:
+# In[ ]:
 
 
 # Import Twitter and Weather API Keys
 
 ## COMMENT THIS OUT before deploying to Heroku!
-import sys
-sys.path.append('../../../../..')
-from config import consumer_key, consumer_secret, access_token, access_token_secret
-weather_api_key = "25bc90a1196e6f153eece0bc0b0fc9eb"
+#import sys
+#sys.path.append('../../../../..')
+#from config import consumer_key, consumer_secret, access_token, access_token_secret
+#weather_api_key = "25bc90a1196e6f153eece0bc0b0fc9eb"
 
 ## REMOVE THESE COMMENTS before deploying to Heroku!
-# consumer_key = os.environ.get("consumer_key")
-# consumer_secret = os.environ.get("consumer_secret")
-# access_token = os.environ.get("access_token")
-# access_token_secret = os.environ.get("access_token_secret")
-# weather_api_key = os.environ.get("weather_api_key")
+consumer_key = os.environ.get("consumer_key")
+consumer_secret = os.environ.get("consumer_secret")
+access_token = os.environ.get("access_token")
+access_token_secret = os.environ.get("access_token_secret")
+weather_api_key = os.environ.get("weather_api_key")
 
 
-# In[3]:
+# In[ ]:
 
 
 # Create a function that gets the weather in Washington, DC and Tweets it
@@ -85,6 +85,7 @@ def WeatherTweet():
 
 
 # Set timer to run every 1 minute (for testing a Twitter deployment)
+# Once deployed and things are working, you may want to change this! Or turn off your app. 
 while(True):
     WeatherTweet()
     time.sleep(60)
